@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Dominion3001",
+"dataUrl": "webGLDom.data.unityweb",
+"asmCodeUrl": "webGLDom.asm.code.unityweb",
+"asmMemoryUrl": "webGLDom.asm.memory.unityweb",
+"asmFrameworkUrl": "webGLDom.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
