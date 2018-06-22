@@ -12,7 +12,8 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGLDom.json", {onProgress: UnityProgress});
     </script>
 	
-	<script src = "http://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+	<script src = "http://vk.com/js/api/xd_connection.js?2" type="text/javascript">
+	</script>
 	<script type="text/javascript">
 	VK.init(function(){
 		//API INITIALIZATION SUCCEEDED
@@ -29,7 +30,7 @@
 		SendToPlayer("RecvParams", document.location.href+'');
 	}
 	
-	function GetProfile(uid){
+	function GetUserInfo(uid){
 		VK.api('users.get',{uids: uid, fields: 'first_name, photo, last_name'},function(data){		
 			var Fname = "";
 			var Lname = "";
@@ -64,7 +65,7 @@
   </head>
   <body>
     <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div id="gameContainer" style="width: 950px; height: 550px"></div>
       <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
