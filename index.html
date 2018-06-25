@@ -9,91 +9,12 @@
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGLDominion.json", {onProgress: UnityProgress});
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGLDom.json", {onProgress: UnityProgress});
     </script>
-		<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
-
-	<script type="text/javascript">
-		VK.init(function(){
-			//API INITIALIZATION SUCCEEDED
-			//YOUR CODE HERE
-			//alert('vk inited');
-		});
-		
-		function SendToPlayer(func,what){
-			gameInstance.SendMessage("SocialManager",func,what);
-		}
-		
-		function GetParams(){
-			//alert(document.location.href+'');
-			SendToPlayer("RecvParams", document.location.href+'');
-		}
-		
-		function GetUserInfo(uid){
-			VK.api('users.get',{uids: uid, fields: 'first_name, last_name, photo_50'},function(data){		
-				var Fname = "";
-				var Lname = "";
-				var Photo = "";
-				if(data.response){
-					Fname = data.response[0]['first_name'];		
-					Lname = data.response[0]['last_name'];
-					
-					Photo = data.response[0]['photo_50'];
-					var Profile = [uid, Fname, Lname, Photo];
-					SendToPlayer("OnGetPlayer", ""+Profile);
-					GetFriends(uid);
-				}
-			});
-			
-		}
-		Object.size = function(obj) {
-		var size = 0, key;
-		for (key in obj) {
-			if (obj.hasOwnProperty(key)) size++;
-		}
-			return size;
-		};
-			
-		function GetFriends(uid){
-			VK.api('friends.get',{uid: uid, count: 10, fields: 'uid, first_name, last_name, photo_50'},function(data)
-			{	
-				alert(Object.size(data.response) + " Object.size");
-				if(data.response){
-					var friends = new Array();
-					for (var i = 0; i < Object.size(data.response);i++){
-						var first_name = data.response[i]['first_name'];
-						var last_name = data.response[i]['last_name'];
-						var uid = data.response[i]['uid'];
-						var photo_50 = data.response[i]['photo_50'];
-						var friend = [first_name, last_name,uid, photo_50];
-						friends.push(friend);					
-					}
-					//alert(friends + " ");
-					gameInstance.SendMessage("Panel","OnGetFriends","" + friends);
-					//SendToPlayer("OnGetFriends", "" + friends);
-
-				}
-			});
-			
-		}
-		
-		function PostToWall(text){
-			var photo_num = "https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
-			VK.api('wall.post',{message: text,
-				attachments: photo_num + ",https://www.youtube.com/watch?v=KFIlq7uusvc"
-				}, function(data){
-			
-				});
-		}
-		
-		function ShowInvite(){
-			VK.callMethod("showInviteBox");
-		}
-	</script>
   </head>
   <body>
     <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div id="gameContainer" style="width: 1000px; height: 850px"></div>
       <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
