@@ -5,6 +5,7 @@ R::setup('mysql:host=sql23.main-hosting.eu;dbname=u742711990_domin',
 if(!R::textConnection()){
 	echo "Не удалось подключиться";
 	exit();	
-}		
+}
+echo "Подключился!";	
 ?>
 
