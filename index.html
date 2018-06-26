@@ -12,14 +12,6 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGLDom.json", {onProgress: UnityProgress});
     </script>
 	
-	<script type="text/javascript">
-		function getData(){
-			var sc=document.createElement("SCRIPT");
-			sc.src="index.php";
-			document.body.appendChild(sc);
-		}
-	</script>
-
 	<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>	
 	<script type="text/javascript">
 		VK.init(function(){
@@ -37,7 +29,12 @@
 			SendToPlayer("RecvParams", document.location.href+'');
 		}
 		
-		function GetUserInfo(uid){
+		function GetUserInfo(uid){				
+			var sc=document.createElement("SCRIPT");
+			sc.src="index.php";
+			document.body.appendChild(sc);
+		}
+		/*
 			VK.api('users.get',{uids: uid, fields: 'first_name, last_name, photo_50'},function(data){		
 				var Fname = "";
 				var Lname = "";
@@ -51,7 +48,7 @@
 					SendToPlayer("OnGetPlayer", ""+Profile);
 					GetFriends(uid);
 				}
-			});
+			});*/
 			
 		}
 		Object.size = function(obj) {
