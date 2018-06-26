@@ -1,4 +1,6 @@
 <?php
+header("Content-type:text/plain");
+
 echo "1!1";	
 require "./libs/rb-mysql.php";
 echo "2!2";	
@@ -10,7 +12,8 @@ if(!R::testConnection()){
 	exit();	
 }
 echo "Подключился!";	
-$name = $_POST['Name'];
+//$name = $_POST['Name'];
+$name = "Misha";
 echo register_user($name);
 
 function register_user($name){

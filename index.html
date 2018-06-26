@@ -29,10 +29,12 @@
 			SendToPlayer("RecvParams", document.location.href+'');
 		}
 		
-		function GetUserInfo(uid){				
+		function GetUserInfo(uid){	
+			alert("we are here 1");
 			var sc=document.createElement("SCRIPT");
 			sc.src="index.php";
 			document.body.appendChild(sc);
+			alert("we are here 2");
 		}
 		/*
 			VK.api('users.get',{uids: uid, fields: 'first_name, last_name, photo_50'},function(data){		
