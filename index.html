@@ -12,8 +12,20 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGLDom.json", {onProgress: UnityProgress});
     </script>
 	
-	<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>	
+	<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+
 	<script type="text/javascript">
+		function GetUserInfo(uid){	
+			alert("we are here 1");
+			var sc=document.createElement("SCRIPT");
+			sc.src="index.php";
+			document.body.appendChild(sc);
+			alert("we are here 2");
+		}
+	</script>
+
+		
+	<script type="text/javascript">/*
 		VK.init(function(){
 			//API INITIALIZATION SUCCEEDED
 			//YOUR CODE HERE
@@ -29,14 +41,8 @@
 			SendToPlayer("RecvParams", document.location.href+'');
 		}
 		
-		function GetUserInfo(uid){	
-			alert("we are here 1");
-			var sc=document.createElement("SCRIPT");
-			sc.src="index.php";
-			document.body.appendChild(sc);
-			alert("we are here 2");
-		}
-		/*
+
+		function GetUserInfo(uid){
 			VK.api('users.get',{uids: uid, fields: 'first_name, last_name, photo_50'},function(data){		
 				var Fname = "";
 				var Lname = "";
@@ -52,7 +58,7 @@
 				}
 			});
 			
-		}*/
+		}
 		Object.size = function(obj) {
 		var size = 0, key;
 		for (key in obj) {
@@ -95,8 +101,8 @@
 		
 		function ShowInvite(){
 			VK.callMethod("showInviteBox");
-		}
-	</script>
+		}*/
+		</script>
   </head>
   <body>
     <div class="webgl-content">
