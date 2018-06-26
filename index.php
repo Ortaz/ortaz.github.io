@@ -10,6 +10,9 @@ if(!R::testConnection()){
 	exit();	
 }
 echo "Подключился!";	
+$name = $_POST['Name'];
+echo register_user($name);
+
 function register_user($name){
 	$user = R::dispense('users');
 	$user ->name = $name;
